@@ -1,7 +1,10 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import { Box, Button, useColorMode } from "@chakra-ui/react"
 
 export default function Home() {
+  const { colorMode, toggleColorMode } = useColorMode()
+
   return (
     <div className={styles.container}>
       <Head>
@@ -10,6 +13,12 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+      <Button onClick={toggleColorMode} colorScheme="purple">
+        Toggle {colorMode === "light" ? "Dark" : "Light"}
+      </Button>
+        <Box bg="tomato" w="100%" p={4} color="white">
+          This is the Box
+        </Box>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
